@@ -1,8 +1,9 @@
 version: "3.9"
-
 services:
   db:
-    image: postgres:15
+    image: postgres:14
+    container_name: atlas-ams-robo-auditor-db
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: pass
@@ -10,7 +11,6 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
-
+      - pg_data:/var/lib/postgresql/data
 volumes:
-  pgdata:
+  pg_data:
